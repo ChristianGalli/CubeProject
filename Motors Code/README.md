@@ -13,11 +13,13 @@ The control architecture is divided into two main components:
   - Direction
   - Speed (RPM)  
 - Translates commands into the required **PWM** and **digital signals** to drive the motors.
+- [Arduino code](arduino controller.ino)
 
 ### 🐍 Python Script
 - Works as a **high-level controller**.  
 - Sends **serial commands** to the Arduino.  
 - Orchestrates **coordinated movement** of the main motors.
+- [Controller code](motor_controller.py)
 
 ---
 
@@ -30,8 +32,7 @@ The control architecture is divided into two main components:
   2. Holding  
   3. Release  
 - Receives commands via a **ROS topic** for synchronized operation.
+- [Brakes code](brakes_control.py)
 
----
 
-## 📂 Repository Structure (suggested)
 
