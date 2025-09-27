@@ -13,7 +13,7 @@ The control architecture is divided into two main components:
   - Direction
   - Speed (RPM)  
 - Translates commands into the required **PWM** and **digital signals** to drive the motors.
-- [Arduino code](arduino controller.ino)
+- [Arduino code](arduino%20controller.ino)
 
 ### 🐍 Python Script
 - Works as a **high-level controller**.  
