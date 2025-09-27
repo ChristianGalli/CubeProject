@@ -1,33 +1,40 @@
 # CubeProject
 
-# Codes
+## 🗂️ Codes
 
 Codes are divided into three branches:
+
 - **Motors code**: contains the code to control the flywheel motors and the brakes.  
 - **Sensors code**: contains the code to read data from the IMU and the flywheels.  
 - **Controller**: contains the code to read and send data to the Unity controller, as well as the controller itself.
-  
-# Structure of a ROS 2 Node in Python 
-
-This brief section provides an overview of the basic structure of a ROS 2 node written in Python using the **rclpy** client library. A **node** is the **fundamental unit of execution** in a ROS 2 system: it's a process that performs computations and communicates with other nodes through the **ROS 2 middleware**.
 
 ---
 
-## Essential Library Imports
-Every Python node starts by importing the necessary libraries. The most common are:
-* **rclpy**: The main Python client library for ROS 2.
-* **rclpy.node.Node**: The base class from which every node must inherit.
-* **Message Types**: Every publisher or subscriber needs the definition of the message type it will use (e.g., `String`, `Int32`, `Float64MultiArray` from the `std_msgs.msg` library).
+## 📌 Structure of a ROS 2 Node in Python 
+
+This section provides an overview of the basic structure of a ROS 2 node written in Python using the **rclpy** client library.  
+
+A **node** is the **fundamental unit of execution** in a ROS 2 system: a process performing computations and communicating with other nodes via the **ROS 2 middleware**.
+
+---
+
+### 1️⃣ Essential Library Imports
+
+Every Python node starts by importing the necessary libraries:
+
+* **rclpy**: Main Python client library for ROS 2.  
+* **rclpy.node.Node**: Base class from which every node inherits.  
+* **Message Types**: Required for publishers and subscribers (e.g., `String`, `Int32`, `Float64MultiArray` from `std_msgs.msg`).
 
 ```python
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String # Example of a message type
+from std_msgs.msg import String  # Example message type
 ```
 
-## 1.2. Node Class Definition
+### 2️⃣ Node Class Definition
 
-The node's logic is encapsulated within a class that inherits from `rclpy.node.Node`. This object-oriented approach promotes code reusability and modularity, a core principle of ROS[cite: 20].
+The node's logic is encapsulated within a class that inherits from `rclpy.node.Node`. This object-oriented approach promotes code reusability and modularity, a core principle of ROS.
 
 ```python
 class MyNode(Node):
@@ -36,7 +43,7 @@ class MyNode(Node):
     ...
 ```
 
-## 1.3. The Constructor (`__init__`)
+### 3️⃣ The Constructor (`__init__`)
 
 The constructor is the core of the node's initialization. All setup operations, including node registration and the creation of communication interfaces, are performed here. 
 
@@ -75,7 +82,7 @@ class MyNode(Node):
         self.counter = 0 
 ```
 
-## 1.4. Callback Functions
+### 4️⃣ Callback Functions
 
 Callbacks are functions that are executed in response to a specific event, such as receiving a message or a timer tick. This event-driven architecture is fundamental to ROS 2's asynchronous operation.
 
@@ -97,7 +104,7 @@ def timer_callback(self):
     self.counter += 1
 ```
 
-## 1.5. The main Function and Node Execution
+### 5️⃣ The main Function and Node Execution
 
 The script's entry point is the `main()` function, which orchestrates the node's lifecycle.
 
@@ -127,7 +134,7 @@ if __name__ == '__main__':
     main()
 ```
 
-## 1.6. Complete Template
+### 6️⃣ Complete Template
 
 Below is a complete and functional template that summarizes all the concepts discussed. This serves as a starting point for creating new custom nodes for the project.
 
