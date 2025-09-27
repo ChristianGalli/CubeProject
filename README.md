@@ -1,5 +1,12 @@
 # CubeProject
 
+# Codes
+
+Codes are divided into three branches:
+- **Motors code**: contains the code to control the flywheel motors and the brakes.  
+- **Sensors code**: contains the code to read data from the IMU and the flywheels.  
+- **Controller**: contains the code to read and send data to the Unity controller, as well as the controller itself.
+  
 # Structure of a ROS 2 Node in Python 
 
 This brief section provides an overview of the basic structure of a ROS 2 node written in Python using the **rclpy** client library. A **node** is the **fundamental unit of execution** in a ROS 2 system: it's a process that performs computations and communicates with other nodes through the **ROS 2 middleware**.
