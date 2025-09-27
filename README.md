@@ -4,9 +4,9 @@
 
 Codes are divided into three branches:
 
-- **Motors code**: contains the code to control the flywheel motors and the brakes.  
-- **Sensors code**: contains the code to read data from the IMU and the flywheels.  
-- **Controller**: contains the code to read and send data to the Unity controller, as well as the controller itself.
+- **Motors code**: contains the code to control the flywheel motors and the brakes. [Motors Codes](Motors%20Code/)
+- **Sensors code**: contains the code to read data from the IMU and the flywheels. [Sensors Codes](Sensors%20Code/)
+- **Controller**: contains the code to read and send data to the Unity controller, as well as the controller itself. [Controllers Codes](Controller/)
 
 ---
 
@@ -137,6 +137,8 @@ if __name__ == '__main__':
 ### 6️⃣ Complete Template
 
 Below is a complete and functional template that summarizes all the concepts discussed. This serves as a starting point for creating new custom nodes for the project.
+
+[Template](Template.py)
 
 ```python
 # 1. Imports
