@@ -7,8 +7,7 @@ The application, developed in **Unity**, acts as a *digital twin* and allows use
 
 Click the button below to download the latest version of the controller:
 
-[![Download APK](https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/your-username/your-repo/releases/latest)
-
+[![Download APK](https://img.shields.io/badge/Download%20App-black?style=for-the-badge&logo=android&logoColor=white)](https://github.com/your-username/your-repo/releases/latest)
 
 ## 🚀 How to Use the APK
 
