@@ -1,38 +1,73 @@
-# 🏎️ Motor and Brake Control Repository
+# 🤖 Flywheel and Brake Control Repository  
 
-This repository contains the **low-level control software** for the main Maxon motors and the associated braking system.  
-The control architecture is divided into two main components:
+This repository contains the **low-level control software** for the flywheel actuation and braking system.  
+The complete control architecture runs on a **Raspberry Pi 5**, with all drivers and actuators directly connected to the GPIO interface.  
 
----
-
-## ⚙️ Main Motor Control (Python & Arduino)
-
-### 🔌 Arduino Sketch
-- Interfaces directly with the **motor drivers** (Maxon ESCON50/5).  
-- Receives commands via **serial port** specifying:
-  - Direction
-  - Speed (RPM)  
-- Translates commands into the required **PWM** and **digital signals** to drive the motors.
-- [Arduino code](arduino%20controller.ino)
-
-### 🐍 Python Script
-- Works as a **high-level controller**.  
-- Sends **serial commands** to the Arduino.  
-- Orchestrates **coordinated movement** of the main motors.
-- [Controller code](motor_controller.py)
+The detailed system design and control strategy are described in the associated paper. This repository focuses only on the implementation.
 
 ---
 
-## 🛑 Brake Control (Python / ROS 2)
+## 🧭 System Overview  
 
-- Implemented as a **ROS 2 node in Python**, designed to run on a **Raspberry Pi**.  
-- Directly manages the braking system’s motors via **GPIO pins**.  
-- Executes specific cycles:
-  1. Engagement  
-  2. Holding  
-  3. Release  
-- Receives commands via a **ROS topic** for synchronized operation.
-- [Brakes code](brakes_control.py)
+The control framework is based on **ROS 2**, enabling modular, real-time communication between subsystems.  
+Two main nodes are implemented:
+
+1. Flywheel motor control  
+2. Solenoid brake control  
+
+Both are written in Python and designed for embedded real-time execution.
+
+---
+
+## ⚙️ Flywheel Motor Control  
+
+High-frequency controller for the flywheel motors.
+
+### Features
+- Direct GPIO and PWM control  
+- Configurable current limits and PWM frequency  
+- High-frequency loop (up to 1 kHz)  
+- Watchdog for communication loss  
+- Thread-safe architecture  
+- Automatic safe shutdown  
+
+### ROS Interface
+**Topic:** `/flywheels`  
+**Message:** `Float64MultiArray`  
+
+Each motor receives:
+- Direction  
+- Current reference  
+
+📄 Code:  
+- [motor_controller.py](motor_controller.py)
+
+---
+
+## 🛑 Brake Control  
+
+The braking system uses **electromagnetic solenoids** driven through MOSFET stages.
+
+### Features
+- Parallel actuator control  
+- Runtime configurable parameters  
+- Thread pool for concurrent actuation  
+- State monitoring and diagnostics  
+- Lock and safety mechanisms  
+
+### ROS Interface
+**Subscription topic:** `/brakes`  
+**Message:** `Float64MultiArray`  
+
+Each actuator receives:
+- Activation state  
+- Movement time  
+
+**Status topic:** `/brakes/status`  
+
+📄 Code:  
+- [brakes_control.py](brakes_control.py)
 
 
 
+---
