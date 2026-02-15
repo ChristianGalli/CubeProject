@@ -12,9 +12,8 @@ This repository contains the **Python scripts** developed to receive, interpret,
 ---
 
 ## ⚡ Maxon Motor Sensor Feedback 
-- A Python script that listens to the **serial port** to acquire motor feedback data, such as speed in **RPM**.  
-- The data is transmitted by an **Arduino sketch** acting as an intermediary between the motor drivers (ESCON50/5) and the main computer.
-- [Arduino Code](../Motors%20Code/arduino%20controller.ino)
+- A Python script that interfaces with the **A/D converters** (via software I2C) to acquire raw readings from ESCON50/5 motor drivers.
+- **Functionality**: Real-time acquisition of RPM and current data for precise torque control monitoring.
 - [Sensors Code](flywheel_sensor.py)
 
 ---
