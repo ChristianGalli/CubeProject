@@ -8,7 +8,7 @@ The application, developed in **Unity**, acts as a *digital twin* and allows use
 Click the button below to download the latest version of the controller:
 
 <p align="center">
-  <a href="https://github.com/ChristianGalli/CubeProject/releases/tag/controller/Sonic.Controller.apk">
+  <a href="https://github.com/ChristianGalli/CubeProject/releases/download/controller/Sonic.Controller.apk">
     <img src="https://img.shields.io/badge/Download%20App-black?style=for-the-badge&logo=android&logoColor=white" alt="Download APK" width="300" height="80">
   </a>
 </p>
